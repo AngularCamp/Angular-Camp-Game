@@ -67,7 +67,8 @@ export class MainPage {
                 correct = this.getResult(arg1, arg2, operand);
 
             // Controlling not to repeat results
-            if (correct !== this.getResult(x, y, operand) && !(result.indexOf(correct) > -1)) {
+            if (correct !== this.getResult(x, y, operand)) {
+                
                 (i===pos) ? result.push(correct) :
                             result.push(this.getResult(x, y, operand));
             } else {
