@@ -3,6 +3,7 @@ import {TextView} from 'ui/text-view';
 import {topmost} from 'ui/frame';
 import {nativeScriptBootstrap} from 'nativescript-angular/application';
 import {Component} from 'angular2/core';
+import { TimerPipe } from "./timer-pipe";
 
 const operands = ["+", "-", "*", "/"];
 
@@ -16,6 +17,7 @@ interface Task {
 
 @Component({
     selector: 'main',
+    pipes: [TimerPipe],
     template: `
 <GridLayout orientation='vertical'>
     <!-- Start screen -->
@@ -30,6 +32,7 @@ interface Task {
     </StackLayout>
     <!-- Game Config -->
     <StackLayout *ngIf="screen === 1" verticalAlignment="center">
+        <Button text="15 seconds" (tap)="prepareGame(15)"></Button>    
         <Button text="2 minutes" (tap)="prepareGame(120)"></Button>
         <Button text="3 minutes" (tap)="prepareGame(180)"></Button>
         <Button text="5 minutes" (tap)="prepareGame(300)"></Button>        
@@ -42,14 +45,17 @@ interface Task {
     </StackLayout>
     
     <!-- Game Phase -->
-    <GridLayout *ngIf="screen === 3" rows="auto, *"> 
-        <GridLayout columns="*,*,*" rows="100">
+    <GridLayout *ngIf="screen === 3" rows="auto, auto, *"> 
+        <Label [text]="secondsLeft | timer" 
+            [ngClass]="{timer: secondsLeft > 10, timerRed: secondsLeft <= 10}"></Label>
+        
+        <GridLayout row="1" columns="*,*,*" rows="100">
             <Label class="task-label" [text]="task.arg1" col="0"></Label>
             <Label class="task-label" [text]="task.operand" col="1"></Label>
             <Label class="task-label" [text]="task.arg2" col="2"></Label>
         </GridLayout>
 
-        <StackLayout row="1">
+        <StackLayout row="2">
             <Button *ngFor="#answer of task.answers; #i = index"
                 [text]="answer" class="answer"
                 (tap)="onAnswer(i)"></Button>
@@ -58,7 +64,8 @@ interface Task {
     
     <!-- Results screen -->
     <StackLayout *ngIf="screen === 4">
-        <Label text="SCORE"></Label>
+        <Label text="SCORE" class="big"></Label>
+        <Button text="NEW GAME" (tap)="newGame()"></Button>
     </StackLayout>
 </GridLayout>
 `,
@@ -134,11 +141,13 @@ export class MainPage {
     }
 
     public onAnswer(index) {
+        // TODO: track score
         console.log("answer index: " + index);
         this.nextTask();
     }
 
     public newGame() {
+        // TODO: cleanup
         this.screen = 1;
     }
 
@@ -150,6 +159,13 @@ export class MainPage {
     public startGame() {
         this.screen = 3;
         // TODO: start timer here
+        var handle = setInterval(() => {
+            this.secondsLeft--;
+            if(this.secondsLeft <= 0){
+                clearInterval(handle);
+                this.endGame();
+            }
+        }, 1000);
     }
     
     public endGame(){
