@@ -24,7 +24,7 @@ interface Task {
     <StackLayout *ngIf="screen === 0" verticalAlignment="center">
     <Label text="AngularCamp Game" class="title"></Label>
     <Image class="front_image"
-        [src]="checked ? 'res://checkbox_checked' : 'res://camp_logo'"
+        src="res://camp_logo"
         dock="left">
     </Image>
     <Button class="main_button" verticalAlignment="center"
