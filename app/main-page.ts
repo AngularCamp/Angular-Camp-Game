@@ -19,9 +19,15 @@ interface Task {
     template: `
 <GridLayout orientation='vertical'>
     <!-- Start screen -->
-    <Button *ngIf="screen === 0" verticalAlignment="center"
+    <StackLayout *ngIf="screen === 0" verticalAlignment="center">
+    <Label text="AngularCamp Game" class="title"></Label>
+    <Image class="front_image"
+        [src]="checked ? 'res://checkbox_checked' : 'res://camp_logo'"
+        dock="left">
+    </Image>
+    <Button class="main_button" verticalAlignment="center"
         text="New Game" (tap)="newGame()"></Button>
-
+    </StackLayout>
     <!-- Game Config -->
     <StackLayout *ngIf="screen === 1" verticalAlignment="center">
         <Button text="2 minutes" (tap)="prepareGame(120)"></Button>
