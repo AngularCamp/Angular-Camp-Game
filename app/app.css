@@ -1,9 +1,4 @@
-Button {
-    margin: 5;
-    padding: 5;
-}
-
-Image{
+Image {
     padding: 5;
 }
 
@@ -11,6 +6,8 @@ Image{
     font-size: 30;
     horizontal-align: center;
     margin:20;
+    }
+    
 button {
     margin: 5 20;   
 }
@@ -44,9 +41,8 @@ button {
     margin: 10 0 30 0;
     color: red;
 }
-}
 
-.front_image{
+.front_image {
     width: 50%;
     padding: 5;
 }
