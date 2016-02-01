@@ -17,37 +17,59 @@ interface Task {
 @Component({
     selector: 'main',
     template: `
-<StackLayout orientation='vertical'>
-    <Button text="New Game" (tap)="startGame()" [visibility]="gameStarted ? 'collapse' : 'visible'"></Button>
+<GridLayout orientation='vertical'>
+    <!-- Start screen -->
+    <Button *ngIf="screen === 0" verticalAlignment="center"
+        text="New Game" (tap)="newGame()"></Button>
 
-    <GridLayout columns="*,*,*,*,*" rows="100" [visibility]="gameStarted ? 'visible' : 'collapse'">
-        <Label class="task-label" [text]="task.arg1" col="0"></Label>
-        <Label class="task-label" [text]="task.operand" col="1"></Label>
-        <Label class="task-label" [text]="task.arg2" col="2"></Label>
-        <Label class="task-label" text="=" col="3"></Label>
-        <Label class="task-label" text="?" col="4"></Label>
-    </GridLayout>
-
-    <StackLayout [visibility]="gameStarted ? 'visible' : 'collapse'">
-        <Button *ngFor="#answer of task.answers; #i = index"
-            [text]="answer" class="answer"
-            (tap)="onAnswer(i)"></Button>
+    <!-- Game Config -->
+    <StackLayout *ngIf="screen === 1" verticalAlignment="center">
+        <Button text="2 minutes" (tap)="prepareGame(120)"></Button>
+        <Button text="3 minutes" (tap)="prepareGame(180)"></Button>
+        <Button text="5 minutes" (tap)="prepareGame(300)"></Button>        
     </StackLayout>
+    
+    <!-- Ready screen -->
+    <StackLayout *ngIf="screen === 2" verticalAlignment="center">
+        <Label text="READY" class="big"></Label>
+        <Button text="SART" (tap)="startGame()"></Button>      
+    </StackLayout>
+    
+    <!-- Game Phase -->
+    <GridLayout *ngIf="screen === 3" rows="auto, *"> 
+        <GridLayout columns="*,*,*" rows="100">
+            <Label class="task-label" [text]="task.arg1" col="0"></Label>
+            <Label class="task-label" [text]="task.operand" col="1"></Label>
+            <Label class="task-label" [text]="task.arg2" col="2"></Label>
+        </GridLayout>
 
-</StackLayout>
+        <StackLayout row="1">
+            <Button *ngFor="#answer of task.answers; #i = index"
+                [text]="answer" class="answer"
+                (tap)="onAnswer(i)"></Button>
+        </StackLayout>
+    </GridLayout>
+    
+    <!-- Results screen -->
+    <StackLayout *ngIf="screen === 4">
+        <Label text="SCORE"></Label>
+    </StackLayout>
+</GridLayout>
 `,
 })
 export class MainPage {
     public task: Task;
-    public gameStarted:boolean = false;
+    public screen: number = 0;
+    public secondsLeft: number;
+
     constructor() {
         this.nextTask();
     }
 
     private nextTask() {
-        var arg1:number = this.getArg();
-        var arg2:number = this.getArg();
-        var operand:string = this.getOperation();
+        var arg1: number = this.getArg();
+        var arg2: number = this.getArg();
+        var operand: string = this.getOperation();
         this.task = {
             arg1: arg1,
             arg2: arg2,
@@ -57,30 +79,30 @@ export class MainPage {
         }
     }
 
-    private getAnswers(arg1, arg2, operand){
-        var pos:number = Math.floor(Math.random() * 4),
-            result:Array<number> = [];
+    private getAnswers(arg1, arg2, operand) {
+        var pos: number = Math.floor(Math.random() * 4),
+            result: Array<number> = [];
 
-        for (var i = 0; i < 4; i++){
+        for (var i = 0; i < 4; i++) {
             var x = this.getArg(),
                 y = this.getArg(),
                 correct = this.getResult(arg1, arg2, operand);
 
             // Controlling not to repeat results
             if (correct !== this.getResult(x, y, operand)) {
-                
-                (i===pos) ? result.push(correct) :
-                            result.push(this.getResult(x, y, operand));
+
+                (i === pos) ? result.push(correct) :
+                    result.push(this.getResult(x, y, operand));
             } else {
                 i -= 1;
             }
         }
-        
+
         return result;
     }
 
     private getResult(arg1, arg2, operand) {
-        switch(operand) {
+        switch (operand) {
             case '+':
                 return arg1 + arg2;
                 break;
@@ -91,7 +113,7 @@ export class MainPage {
                 return arg1 * arg2;
                 break;
             case '/':
-                return ((((arg1 / arg2) * 100 ) | 0 ) / 100 );
+                return ((((arg1 / arg2) * 100) | 0) / 100);
                 break;
         }
     }
@@ -100,18 +122,31 @@ export class MainPage {
         return Math.floor((Math.random() * 10) + 1);
     }
 
-    private getOperation(): string{
+    private getOperation(): string {
         var i = Math.floor((Math.random() * operands.length))
         return operands[i];
     }
 
-    public onAnswer(index){
+    public onAnswer(index) {
         console.log("answer index: " + index);
         this.nextTask();
     }
 
-    public startGame(){
-        this.gameStarted = true;
-        //counter should start here
+    public newGame() {
+        this.screen = 1;
+    }
+
+    public prepareGame(seconds: number) {
+        this.secondsLeft = seconds;
+        this.screen = 2;
+    }
+
+    public startGame() {
+        this.screen = 3;
+        // TODO: start timer here
+    }
+    
+    public endGame(){
+        this.screen = 4;
     }
 }
