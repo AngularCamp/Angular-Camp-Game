@@ -1,23 +1,33 @@
-﻿.title {
-    font-size: 30;
-    horizontal-align: center;
-    margin:20;
+﻿button {
+    margin: 5 20;   
 }
-
 .task-label{
     font-size: 30;
-    color: green;
+    color: chocolates;
     text-align: center;
     vertical-align: center;
 }
 
 .answer {
     font-size: 28;
-    margin: 5;
 }
 
 .big {
     font-size: 28;
     horizontal-align: center;
     margin: 5;
+}
+
+.timer {
+    font-size: 34;
+    horizontal-align: center;
+    margin: 10 0 30 0;
+    color: green;
+}
+
+.timerRed {
+    font-size: 34;
+    horizontal-align: center;
+    margin: 10 0 30 0;
+    color: red;
 }
