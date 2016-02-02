@@ -19,7 +19,7 @@ interface Task {
     selector: 'main',
     pipes: [TimerPipe],
     template: `
-<GridLayout orientation='vertical'>
+<GridLayout orientation='vertical' >
     <!-- Start screen -->
     <StackLayout *ngIf="screen === 0" verticalAlignment="center">
     <Label text="AngularCamp Game" class="title"></Label>
@@ -41,25 +41,27 @@ interface Task {
     <!-- Ready screen -->
     <StackLayout *ngIf="screen === 2" verticalAlignment="center">
         <Label text="READY" class="big"></Label>
-        <Button text="SART" (tap)="startGame()"></Button>      
+        <Button text="START" (tap)="startGame()"></Button>      
     </StackLayout>
     
     <!-- Game Phase -->
-    <GridLayout *ngIf="screen === 3" rows="auto, auto, *"> 
-        <Label [text]="secondsLeft | timer" 
+    <GridLayout *ngIf="screen === 3" rows="auto,auto, auto, *"> 
+        <Label class="title" text="AngularCamp Game"></Label>
+        <Label row="1" class="timer_text" [text]="secondsLeft | timer" 
             [ngClass]="{timer: secondsLeft > 10, timerRed: secondsLeft <= 10}"></Label>
         
-        <GridLayout row="1" columns="*,*,*" rows="100">
+        <GridLayout class="task-background" row="2" columns="*,*,*" rows="100">
             <Label class="task-label" [text]="task.arg1" col="0"></Label>
             <Label class="task-label" [text]="task.operand" col="1"></Label>
             <Label class="task-label" [text]="task.arg2" col="2"></Label>
         </GridLayout>
 
-        <StackLayout row="2">
+        <GridLayout class="answers" row="3" columns="*,*,*,*">
             <Button *ngFor="#answer of task.answers; #i = index"
                 [text]="answer" class="answer"
+                [col]="i"
                 (tap)="onAnswer(i)"></Button>
-        </StackLayout>
+        </GridLayout>
     </GridLayout>
     
     <!-- Results screen -->

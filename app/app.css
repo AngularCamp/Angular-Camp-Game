@@ -1,3 +1,7 @@
+GridLayout {
+background-image: url("res://background2");
+}
+
 Image {
     padding: 5;
 }
@@ -10,16 +14,33 @@ Image {
     
 button {
     margin: 5 20;   
+    border-radius: 4;
 }
 .task-label{
-    font-size: 30;
     color: chocolates;
     text-align: center;
     vertical-align: center;
 }
 
+.task-background {
+    background-color: whitesmoke;
+    width: 60%;
+    height: 30%;
+    font-size: 48;
+    text-align: center;
+    vertical-align: middle;
+    color: dimgrey;
+}
+
 .answer {
     font-size: 28;
+    background-color: darkred;
+    height: 36;
+}
+
+.answers {
+    background-color: black;
+    height: 90;
 }
 
 .big {
@@ -29,6 +50,9 @@ button {
 }
 
 .timer {
+    background-color: whitesmoke;
+    width: 60%;
+    height: 40;
     font-size: 34;
     horizontal-align: center;
     margin: 10 0 30 0;
@@ -36,10 +60,18 @@ button {
 }
 
 .timerRed {
+    background-color: whitesmoke;
+    width: 60%;
+    height: 40;
     font-size: 34;
     horizontal-align: center;
     margin: 10 0 30 0;
     color: red;
+}
+
+.timer_text{
+    text-align: center;
+    vertical-align: middle;
 }
 
 .front_image {
@@ -49,6 +81,8 @@ button {
 
 .main_button {
      horizontal-align: center;
+     width: 33%;
      background-color: mediumseagreen;
      color: white;
+     margin-top: 15;
 }
