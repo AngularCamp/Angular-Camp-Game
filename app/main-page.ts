@@ -19,7 +19,7 @@ interface Task {
     selector: 'main',
     pipes: [TimerPipe],
     template: `
-<GridLayout orientation='vertical' >
+<GridLayout class="main-background" orientation='vertical' >
     <!-- Start screen -->
     <StackLayout *ngIf="screen === 0" verticalAlignment="center">
     <Label text="AngularCamp Game" class="title"></Label>
@@ -32,16 +32,17 @@ interface Task {
     </StackLayout>
     <!-- Game Config -->
     <StackLayout *ngIf="screen === 1" verticalAlignment="center">
-        <Button text="15 seconds" (tap)="prepareGame(15)"></Button>    
-        <Button text="2 minutes" (tap)="prepareGame(120)"></Button>
-        <Button text="3 minutes" (tap)="prepareGame(180)"></Button>
-        <Button text="5 minutes" (tap)="prepareGame(300)"></Button>        
+        <Button class="opt_button" text="15 seconds" (tap)="prepareGame(15)"></Button>    
+        <Button class="opt_button" text="2 minutes" (tap)="prepareGame(120)"></Button>
+        <Button class="opt_button" text="3 minutes" (tap)="prepareGame(180)"></Button>
+        <Button class="opt_button" text="5 minutes" (tap)="prepareGame(300)"></Button>        
     </StackLayout>
     
     <!-- Ready screen -->
     <StackLayout *ngIf="screen === 2" verticalAlignment="center">
-        <Label text="READY" class="big"></Label>
-        <Button text="START" (tap)="startGame()"></Button>      
+        <Label text="READY TO PLAY?" class="big"></Label>
+        <Button class="start_button_ok" text="Sure thing!" (tap)="startGame()"></Button> 
+        <Button class="start_button_nok" text="Not so sure..." (tap)="startGame()"></Button>       
     </StackLayout>
     
     <!-- Game Phase -->
@@ -67,7 +68,8 @@ interface Task {
     <!-- Results screen -->
     <StackLayout *ngIf="screen === 4">
         <Label text="SCORE" class="big"></Label>
-        <Button text="NEW GAME" (tap)="newGame()"></Button>
+        <Button class="opt_button" text="NEW GAME" (tap)="newGame()"></Button>
+        <Button class="opt_button" text="Show me that cool logo again" (tap)="back2Start()"></Button>
     </StackLayout>
 </GridLayout>
 `,
@@ -151,6 +153,11 @@ export class MainPage {
     public newGame() {
         // TODO: cleanup
         this.screen = 1;
+    }
+    
+    public back2Start() {
+        // TODO: cleanup
+        this.screen = 0;
     }
 
     public prepareGame(seconds: number) {

@@ -1,5 +1,8 @@
-GridLayout {
-background-image: url("res://background2");
+.main-background {
+background-color: darkred;
+}
+.main-background2 {
+background-image: url("res://background");
 }
 
 Image {
@@ -10,14 +13,11 @@ Image {
     font-size: 30;
     horizontal-align: center;
     margin:20;
+    color: lightgray;
     }
     
-button {
-    margin: 5 20;   
-    border-radius: 4;
-}
 .task-label{
-    color: chocolates;
+    color: chocolate;
     text-align: center;
     vertical-align: center;
 }
@@ -47,6 +47,7 @@ button {
     font-size: 28;
     horizontal-align: center;
     margin: 5;
+    color: lightgray;
 }
 
 .timer {
@@ -79,10 +80,39 @@ button {
     padding: 5;
 }
 
+button {
+    margin: 5 20;   
+    border-radius: 4;
+}
+
+.opt_button{
+     horizontal-align: center;
+     width: 40%;
+     background-color: gray;
+     color: white;
+     margin-top: 15;
+}
+
+.start_button_ok{
+     horizontal-align: center;
+     width: 40%;
+     background-color: green;
+     color: white;
+     margin-top: 15; 
+}
+
+.start_button_nok{
+     horizontal-align: center;
+     width: 40%;
+     background-color: blue;
+     color: white;
+     margin-top: 15;
+}
+
 .main_button {
      horizontal-align: center;
      width: 33%;
-     background-color: mediumseagreen;
+     background-color: gray;
      color: white;
      margin-top: 15;
 }
