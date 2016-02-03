@@ -15,6 +15,11 @@ interface Task {
     rightAnswerIndex: number;
 }
 
+interface Score {
+    right: number;
+    wrong: number;
+}
+
 @Component({
     selector: 'main',
     pipes: [TimerPipe],
@@ -58,8 +63,8 @@ interface Task {
         </GridLayout>
 
         <GridLayout class="answers" row="3" columns="*,*,*,*">
-            <Button *ngFor="#answer of task.answers; #i = index"
-                [text]="answer" class="answer"
+            <Button class="answer-btn" *ngFor="#answer of task.answers; #i = index"
+                [text]="answer"
                 [col]="i"
                 (tap)="onAnswer(i)"></Button>
         </GridLayout>
@@ -68,6 +73,8 @@ interface Task {
     <!-- Results screen -->
     <StackLayout *ngIf="screen === 4">
         <Label text="SCORE" class="big"></Label>
+        <Label [text]="score.right" class="big"></Label>
+        <Label [text]="score.wrong" class="big"></Label>        
         <Button class="opt_button" text="NEW GAME" (tap)="newGame()"></Button>
         <Button class="opt_button" text="Show me that cool logo again" (tap)="back2Start()"></Button>
     </StackLayout>
@@ -76,29 +83,41 @@ interface Task {
 })
 export class MainPage {
     public task: Task;
+    public score: Score;
     public screen: number = 0;
     public secondsLeft: number;
 
     constructor() {
         this.nextTask();
+        this.setScore(0,0);
     }
 
     private nextTask() {
         var arg1: number = this.getArg();
         var arg2: number = this.getArg();
         var operand: string = this.getOperation();
+        var pos: number = Math.floor(Math.random() * 4);
         this.task = {
             arg1: arg1,
             arg2: arg2,
             operand: operand,
-            answers: this.getAnswers(arg1, arg2, operand),
-            rightAnswerIndex: 2
+            rightAnswerIndex: pos,
+            answers: this.getAnswers(arg1, arg2, operand,pos)
         }
     }
 
-    private getAnswers(arg1, arg2, operand) {
-        var pos: number = Math.floor(Math.random() * 4),
-            result: Array<number> = [];
+private setScore(right:number,wrong:number){
+    var right: number = right;
+    var wrong: number = wrong;
+    this.score={
+        right:right,
+        wrong:wrong
+    }
+    
+}
+
+    private getAnswers(arg1, arg2, operand, pos) {
+        var result: Array<number> = [];
 
         for (var i = 0; i < 4; i++) {
             var x = this.getArg(),
@@ -146,17 +165,25 @@ export class MainPage {
 
     public onAnswer(index) {
         // TODO: track score
+            if (index === this.task.rightAnswerIndex) {
+                this.score.right++;
+            } else {
+                this.score.wrong++;
+            }
+        
         console.log("answer index: " + index);
         this.nextTask();
     }
 
     public newGame() {
-        // TODO: cleanup
+        // back to select time
+        this.score.right=0;
+        this.score.wrong=0;
         this.screen = 1;
     }
     
     public back2Start() {
-        // TODO: cleanup
+        // back to main menu
         this.screen = 0;
     }
 
@@ -167,7 +194,6 @@ export class MainPage {
 
     public startGame() {
         this.screen = 3;
-        // TODO: start timer here
         var handle = setInterval(() => {
             this.secondsLeft--;
             if(this.secondsLeft <= 0){

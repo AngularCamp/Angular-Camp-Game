@@ -32,13 +32,14 @@ Image {
     color: dimgrey;
 }
 
-.answer {
+.answer-btn {
     font-size: 28;
-    background-color: darkred;
-    height: 36;
+    background-color: whitesmoke;
+    height: 100%;
+    width: 25%;
 }
 
-.answers {
+.answers_ {
     background-color: black;
     height: 90;
 }
