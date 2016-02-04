@@ -37,6 +37,7 @@ interface Score {
     </StackLayout>
     <!-- Game Config -->
     <StackLayout *ngIf="screen === 1" verticalAlignment="center">
+        <Label text="Select your challenge" class="big" row="1"></Label>
         <Button class="opt_button" text="15 seconds" (tap)="prepareGame(15)"></Button>    
         <Button class="opt_button" text="2 minutes" (tap)="prepareGame(120)"></Button>
         <Button class="opt_button" text="3 minutes" (tap)="prepareGame(180)"></Button>
@@ -56,7 +57,7 @@ interface Score {
         <Label row="1" class="timer_text" [text]="secondsLeft | timer" 
             [ngClass]="{timer: secondsLeft > 10, timerRed: secondsLeft <= 10}"></Label>
         
-        <GridLayout class="task-background" row="2" columns="*,*,*" rows="100">
+        <GridLayout class="task-background" row="2" columns="*,*,*" verticalAlignment="center">
             <Label class="task-label" [text]="task.arg1" col="0"></Label>
             <Label class="task-label" [text]="task.operand" col="1"></Label>
             <Label class="task-label" [text]="task.arg2" col="2"></Label>
@@ -71,13 +72,30 @@ interface Score {
     </GridLayout>
     
     <!-- Results screen -->
-    <StackLayout *ngIf="screen === 4">
-        <Label text="SCORE" class="big"></Label>
-        <Label [text]="score.right" class="big"></Label>
-        <Label [text]="score.wrong" class="big"></Label>        
-        <Button class="opt_button" text="NEW GAME" (tap)="newGame()"></Button>
-        <Button class="opt_button" text="Show me that cool logo again" (tap)="back2Start()"></Button>
-    </StackLayout>
+    <GridLayout *ngIf="screen === 4" rows="auto,auto, auto, auto, auto, auto"> 
+    
+        <Label text="SCORE" class="title" row="1"></Label>
+        <GridLayout row="2">
+            <Image class="front_image"
+                src="res://campcamp"
+                dock="left">
+            </Image>
+        </GridLayout>
+        <GridLayout columns="auto,auto" row="3" horizontalAlignment="center">
+            <Label text="Right answers:" class="big" col="0"></Label>            
+            <Label [text]="score.right" class="big" col="1"></Label>            
+        </GridLayout>     
+                
+        <GridLayout columns="auto,auto" row="4" horizontalAlignment="center">            
+            <Label text="Wrong answers:" class="big"col="0"></Label>
+            <Label [text]="score.wrong" class="big"col="1"></Label>       
+        </GridLayout>
+         
+        <GridLayout columns="auto,auto" row="5">    
+            <Button class="opt_button" text="NEW GAME" (tap)="newGame()" col="0"></Button>
+            <Button class="opt_button" col="1" text="Cool logo again" (tap)="back2Start()"></Button>
+        </GridLayout>
+    </GridLayout>
 </GridLayout>
 `,
 })
@@ -164,7 +182,6 @@ private setScore(right:number,wrong:number){
     }
 
     public onAnswer(index) {
-        // TODO: track score
             if (index === this.task.rightAnswerIndex) {
                 this.score.right++;
             } else {

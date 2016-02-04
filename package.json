@@ -1,6 +1,6 @@
 {
 	"nativescript": {
-		"id": "org.nativescript.helloworldng",
+		"id": "com.gft.appverse.showcase",
 		"tns-ios": {
 			"version": "1.5.2"
 		},
@@ -8,11 +8,11 @@
 			"version": "1.5.1"
 		}
 	},
-	"name": "nativescript-hello-world-ng",
+	"name": "AngularCampGame",
 	"main": "app.js",
 	"version": "1.0.0",
-	"author": "Telerik <support@telerik.com>",
-	"description": "Nativescript Angular Hello World template",
+	"author": "csro@gft.com>",
+	"description": "Nativescript Angular2  game built during AngularCamp",
 	"license": "BSD",
 	"keywords": [
 		"telerik",
@@ -22,13 +22,15 @@
 		"{N}",
 		"tns",
 		"appbuilder",
-		"template"
+		"template",
+        "appverse",
+        "gft"
 	],
 	"repository": {
 		"type": "git",
-		"url": "git://github.com/NativeScript/template-hello-world-ng"
+		"url": "https://appverse.gftlabs.com/git/scm/acamp/angularcampgame.git"
 	},
-	"homepage": "http://nativescript.org",
+	"homepage": "http://angularcamp.org",
 	"dependencies": {
 		"tns-core-modules": "1.6.0-angular-1",
 		"nativescript-angular": "0.0.26",

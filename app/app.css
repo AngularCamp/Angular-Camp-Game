@@ -1,9 +1,6 @@
 .main-background {
 background-color: darkred;
 }
-.main-background2 {
-background-image: url("res://background");
-}
 
 Image {
     padding: 5;
@@ -17,31 +14,22 @@ Image {
     }
     
 .task-label{
-    color: chocolate;
+    color: whitesmoke;
     text-align: center;
     vertical-align: center;
 }
 
 .task-background {
-    background-color: whitesmoke;
+    background-color: darkred;
     width: 60%;
     height: 30%;
     font-size: 48;
     text-align: center;
     vertical-align: middle;
-    color: dimgrey;
-}
-
-.answer-btn {
-    font-size: 28;
-    background-color: whitesmoke;
-    height: 100%;
-    width: 25%;
-}
-
-.answers_ {
-    background-color: black;
-    height: 90;
+    color: gray;
+    border-radius: 4;
+    border-color: gray;
+    border-width: 5;
 }
 
 .big {
@@ -74,6 +62,7 @@ Image {
 .timer_text{
     text-align: center;
     vertical-align: middle;
+       border-radius: 4;
 }
 
 .front_image {
@@ -116,4 +105,12 @@ button {
      background-color: gray;
      color: white;
      margin-top: 15;
+}
+
+.answer-btn {
+    font-size: 24;
+    color: white;
+    background-color: gray;
+    height: 25%;
+    width: 20%;
 }
