@@ -11,7 +11,11 @@ Keep in mind that at this time the Compnent router is not yet ready to be used w
 
 It is still a live project and some more experiments will happen on it. 
 
-This demo was powered by NativeScript and supported by GFT 
+This demo was powered by NativeScript, supported by GFT and inspired by AngularCamp
+
+<img src="https://worldvectorlogo.com/logos/nativescript.svg" alt="Nativescript" style="width: 50px;"/>
+<img src="https://www.gft.com/dam/jcr:172f6059-a8b4-4438-9b92-26a5effa38d6/GFT_logo_tiny.png" alt="GFT" style="width: 200px;" />
+<img src="http://angularcamp.org/images/AngularCamp-logo.png" alt="Camp" style="width: 100px;" />
 
 # Prerequisites
 
