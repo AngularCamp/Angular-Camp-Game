@@ -2,6 +2,7 @@ node_modules
 built
 tags
 typings
+dist_web
 .baseDir.ts
 .tscache
 

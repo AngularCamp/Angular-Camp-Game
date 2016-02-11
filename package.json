@@ -11,9 +11,9 @@
 	"name": "AngularCampGame",
 	"main": "app.js",
 	"version": "1.0.0",
-	"author": "csro@gft.com>",
+	"author": "<csro@gft.com>",
 	"description": "Nativescript Angular2  game built during AngularCamp",
-	"license": "BSD",
+	"license": "MIT",
 	"keywords": [
 		"telerik",
 		"mobile",
