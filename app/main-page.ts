@@ -29,7 +29,7 @@ interface Score {
     <StackLayout *ngIf="screen === 0" verticalAlignment="center">
     <Label text="AngularCamp Game" class="title"></Label>
     <Image class="front_image"
-        src="res://camp_logo"
+        src="res://angular_camp_game"
         dock="left">
     </Image>
     <Button class="main_button" verticalAlignment="center"
