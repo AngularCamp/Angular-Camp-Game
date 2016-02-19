@@ -1,5 +1,5 @@
 /*The MIT License (MIT)
-Copyright (c) 2016 
+Copyright (c) 2016
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -11,13 +11,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 import {Pipe, PipeTransform} from 'angular2/core';
 
+require("moment-duration-format");
+var moment  = require("moment");
+
 @Pipe({ name: 'timer' })
 export class TimerPipe implements PipeTransform {
     transform(value: number, args: string[]): any {
-        let min = Math.floor(value / 60);
-        let sec = value - min * 60;
-
-        return (min < 10 ? "0" : "") + min + ":" +
-            (sec < 10 ? "0" : "") + sec;
+        return moment.duration(value, "milliseconds").format("mm:ss.SSS", { forceLength: true });
     }
 }

@@ -1,6 +1,6 @@
-// this import should be first in order to load some required settings (like globals and reflect-metadata)
-import {nativeScriptBootstrap} from 'nativescript-angular/application';
+import {nativeScriptBootstrap} from "nativescript-angular/application";
+import {HTTP_PROVIDERS} from "angular2/http";
+import {NS_ROUTER_PROVIDERS} from "nativescript-angular/router";
+import {AppComponent} from "./app.component";
 
-import {MainPage} from './main-page';
-
-nativeScriptBootstrap(MainPage);
+nativeScriptBootstrap(AppComponent, [HTTP_PROVIDERS, NS_ROUTER_PROVIDERS]);

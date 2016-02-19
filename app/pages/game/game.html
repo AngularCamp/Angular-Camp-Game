@@ -1,0 +1,14 @@
+<GridLayout rows="auto,auto, auto, *">
+	<Label class="title" text="AngularCamp Game"></Label>
+	<Label row="1" class="timer_text" [text]="timeLeft | timer" [ngClass]="{timer: timeLeft > 10*1000, timerRed: timeLeft <= 10 * 1000}"></Label>
+
+	<GridLayout class="task-background" row="2" columns="*,*,*" verticalAlignment="center">
+		<Label class="task-label" [text]="task.arg1" col="0"></Label>
+		<Label class="task-label" [text]="task.operand" col="1"></Label>
+		<Label class="task-label" [text]="task.arg2" col="2"></Label>
+	</GridLayout>
+
+	<GridLayout class="answers" row="3" columns="*,*,*,*">
+		<Button class="answer-btn" *ngFor="#answer of task.answers; #i = index" [text]="answer" [col]="i" (tap)="onAnswer(i)"></Button>
+	</GridLayout>
+</GridLayout>
