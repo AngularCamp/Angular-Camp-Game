@@ -13,6 +13,7 @@ import 'reflect-metadata';
 import {Component} from 'angular2/core';
 import {RouteConfig} from "angular2/router";
 import {NS_ROUTER_DIRECTIVES} from "nativescript-angular/router";
+import {Page} from 'ui/page';
 
 
 import {SplashPage} from "./pages/splash/splash.component";
@@ -22,7 +23,7 @@ import {GamePage} from "./pages/game/game.component";
 import {ResultsPage} from "./pages/results/results.component";
 
 import {GameEngine} from "./shared/game-engine";
-
+import "./livesync-patch";
 
 
 @Component({
@@ -30,9 +31,7 @@ import {GameEngine} from "./shared/game-engine";
     directives: [NS_ROUTER_DIRECTIVES],
     providers: [GameEngine],
     template: `
-      <GridLayout class="main-background" orientation='vertical' >
-        <page-router-outlet></page-router-outlet>
-      </GridLayout>
+      <StackLayout verticalAlignment="center"><page-router-outlet></page-router-outlet></StackLayout>
       `
 })
 @RouteConfig([
@@ -43,4 +42,8 @@ import {GameEngine} from "./shared/game-engine";
     { path: "/Results", component: ResultsPage, as: "Results" }
 ])
 
-export class AppComponent {}
+export class AppComponent {
+  constructor(page: Page) {
+    page.actionBar.title = "AngularCamp Game";
+  }
+}

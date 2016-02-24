@@ -1,20 +1,94 @@
-/*The MIT License (MIT)
-Copyright (c) 2016 
+@import { url('~/platform.css') };
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-*/
-
-.main-background {
-background-color: darkred;
+Page {
+    background-color: #B92731;
+    font-size: 14;
 }
-
+Label {
+    color: whitesmoke;
+    horizontal-align: center;
+    margin: 5;
+}
+TextField {
+    margin: 10;
+    padding: 10;
+}
 Image {
     padding: 5;
 }
+ActionBar {
+  background-color: #861C23;
+  color: whitesmoke;
+}
+
+/* Common classes */
+.title {
+    font-size: 30;
+    horizontal-align: center;
+    margin:20;
+    color: lightgray;
+}
+
+.button {
+  margin: 20;
+  margin-bottom: 0;
+  font-size: 14;
+  width: 40%;
+}
+
+.big {
+    font-size: 25;
+}
+
+
+
+/*Splash Page*/
+.front_image {
+    width: 50%;
+    padding: 5;
+}
+
+/*Game Page*/
+.timer {
+    background-color: #5EC259;
+    font-size: 25;
+    text-align: center;
+    margin: 20;
+    color: whitesmoke;
+    border-radius: 4;
+    width: 40%;
+    height: 10%;
+    padding: 5;
+    vertical-align: middle;
+}
+
+.red {
+    background-color: #EE2934;
+}
+
+.question{
+  width: 40%;
+    background-color: #861C23;
+    font-size: 35;
+    text-align: center;
+    vertical-align: middle;
+    color: whitesmoke;
+    border-radius: 4;
+    border-color: whitesmoke;
+    border-width: 2;
+    margin: 20;
+}
+
+.answers{
+  padding: 20;
+}
+
+.answer{
+  width: 40%;
+  margin: 5;
+  font-size: 30;
+}
+/*
 
 .title {
     font-size: 30;
@@ -22,7 +96,7 @@ Image {
     margin:20;
     color: lightgray;
     }
-    
+
 .task-label{
     color: whitesmoke;
     text-align: center;
@@ -56,7 +130,7 @@ Image {
     font-size: 34;
     horizontal-align: center;
     margin: 10 0 30 0;
-    color: green;
+    color: #016C1B;
 }
 
 .timerRed {
@@ -80,11 +154,6 @@ Image {
     padding: 5;
 }
 
-button {
-    margin: 5 20;   
-    border-radius: 4;
-}
-
 .opt_button{
      horizontal-align: center;
      width: 40%;
@@ -98,7 +167,7 @@ button {
      width: 40%;
      background-color: green;
      color: white;
-     margin-top: 15; 
+     margin-top: 15;
 }
 
 .start_button_nok{
@@ -123,4 +192,4 @@ button {
     background-color: gray;
     height: 25%;
     width: 20%;
-}
+}*/

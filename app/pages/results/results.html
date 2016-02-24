@@ -1,22 +1,24 @@
-<GridLayout rows="auto,auto, auto, auto, auto, auto">
+<StackLayout verticalAlignment="center">
+	<GridLayout rows="auto,auto, auto, auto, auto, auto">
 
-	<Label text="SCORE" class="title" row="1"></Label>
-	<GridLayout row="2">
-		<Image class="front_image" src="res://campcamp" dock="left">
-		</Image>
-	</GridLayout>
-	<GridLayout columns="auto,auto" row="3" horizontalAlignment="center">
-		<Label text="Right answers:" class="big" col="0"></Label>
-		<Label [text]="score.right" class="big" col="1"></Label>
-	</GridLayout>
+		<Label text="SCORE" class="title" row="1"></Label>
+		<GridLayout row="2">
+			<Image class="front_image" src="res://campcamp" dock="left">
+			</Image>
+		</GridLayout>
+		<GridLayout columns="auto,auto" row="3" horizontalAlignment="center">
+			<Label text="Right answers:" class="big" col="0"></Label>
+			<Label [text]="score.right" class="big" col="1"></Label>
+		</GridLayout>
 
-	<GridLayout columns="auto,auto" row="4" horizontalAlignment="center">
-		<Label text="Wrong answers:" class="big" col="0"></Label>
-		<Label [text]="score.wrong" class="big" col="1"></Label>
-	</GridLayout>
+		<GridLayout columns="auto,auto" row="4" horizontalAlignment="center">
+			<Label text="Wrong answers:" class="big" col="0"></Label>
+			<Label [text]="score.wrong" class="big" col="1"></Label>
+		</GridLayout>
 
-	<GridLayout columns="auto,auto" row="5">
-		<Button class="opt_button" text="NEW GAME" (tap)="newGame()" col="0"></Button>
-		<Button class="opt_button" col="1" text="Cool logo again" (tap)="back2Start()"></Button>
+		<GridLayout columns="auto,auto" row="5">
+			<Button class="button primary" text="New Game" (tap)="newGame()" col="0"></Button>
+			<Button class="button" col="1" text="Cool logo again" (tap)="back2Start()"></Button>
+		</GridLayout>
 	</GridLayout>
-</GridLayout>
+</StackLayout>

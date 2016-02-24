@@ -1,6 +1,8 @@
 /// <reference path="../node_modules/angular2/typings/browser.d.ts" />
 /// <reference path="../node_modules/angular2/ts/typings/node/node.d.ts" />
 /// <reference path="../node_modules/tns-core-modules/tns-core-modules.base.d.ts" />
+/// <reference path="../node_modules/nativescript-effects/tns-effects.d.ts" />
+
 declare var assert: any;
 
 interface Map<K, V> {

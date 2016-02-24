@@ -17,6 +17,6 @@ var moment  = require("moment");
 @Pipe({ name: 'timer' })
 export class TimerPipe implements PipeTransform {
     transform(value: number, args: string[]): any {
-        return moment.duration(value, "milliseconds").format("mm:ss.SSS", { forceLength: true });
+        return moment.duration(value, "milliseconds").format("mm:ss.SSS", { forceLength: true, trim: false  });
     }
 }

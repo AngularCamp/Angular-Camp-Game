@@ -1,0 +1,14 @@
+Button {
+  color: whitesmoke;
+
+    border-width: 1;
+    border-style: solid;
+    border-color: whitesmoke;
+    border-radius: 2;
+
+}
+
+.primary {
+  background-color: whitesmoke;
+  color: #861C23;
+}
