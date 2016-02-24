@@ -10,18 +10,29 @@
         "emitDecoratorMetadata": true,
         "noEmitOnError": true
     },
-    "files": [
-        "app/app.ts",
-        "app/compat.d.ts",
-        "app/main-page.ts",
-        "node_modules/tns-core-modules/tns-core-modules.d.ts"
-    ],
-    "filesGlob": [
-        "node_modules/tns-core-modules/tns-core-modules.d.ts",
-        "app/**/*.ts"
-    ],
     "exclude": [
         "node_modules",
         "platforms"
+    ],
+    "filesGlob": [
+        "**/*.ts",
+        "!node_modules/**"
+    ],
+    "atom": {
+        "rewriteTsconfig": true
+    },
+    "files": [
+        "app/app.component.ts",
+        "app/app.ts",
+        "app/global.d.ts",
+        "app/livesync-patch.ts",
+        "app/pages/game/game.component.ts",
+        "app/pages/ready/ready.component.ts",
+        "app/pages/results/results.component.ts",
+        "app/pages/setup/setup.component.ts",
+        "app/pages/splash/splash.component.ts",
+        "app/shared/game-engine.ts",
+        "app/shared/models/models.ts",
+        "app/shared/timer.pipe.ts"
     ]
 }

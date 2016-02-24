@@ -1,0 +1,5 @@
+<StackLayout verticalAlignment="center">
+    <Label text="READY TO PLAY?" class="big"></Label>
+    <Button class="button primary" text="Sure thing!" (tap)="startGame()"></Button>
+    <Button class="button" text="Not so sure..." [nsRouterLink]="['/Setup']"></Button>
+</StackLayout>
