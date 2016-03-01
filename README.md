@@ -7,11 +7,11 @@ It does not pretend to be a state of the art or a reference applciation but a si
 
 Our main focus was to experiment a bit with the base components, basic styling and simple (really simple) Angular2 concepts. 
 
-Keep in mind that at this time the Compnent router is not yet ready to be used with Nativescript or a solution that rednders native UI. So we uses some tricks to bypass this. Should not be a susprise given Angular2 is in beta and so it is its support in NativeScript.
+Keep in mind that at this time NativeScript support for Angular2 is still not final. Should not be a susprise given Angular2 is in beta.
 
 It is still a live project and some more experiments will happen on it. 
 
-This demo was powered by NativeScript, supported by GFT and inspired by AngularCamp
+This demo is powered by NativeScript, supported by GFT and inspired by AngularCamp
 
 <img src="https://worldvectorlogo.com/logos/nativescript.svg" alt="Nativescript"  width=80/>
 <img src="https://www.gft.com/dam/jcr:172f6059-a8b4-4438-9b92-26a5effa38d6/GFT_logo_tiny.png" alt="GFT" width=200 />
@@ -49,7 +49,7 @@ tns run ios
 ```
 
 #License
-Just in case you build the next Angry Birds on top of this software you whould know that we would be more than happy. 
+Just in case you build the next Angry Birds on top of this software you would know that we would be more than happy. 
 
 As we need to pick one... we go with MIT
 

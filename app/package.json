@@ -1,10 +1,10 @@
 {
-	"name": "tns-template-hello-world",
+	"name": "Angular-Camp-Game",
 	"main": "app.js",
-	"version": "1.2.0",
-	"author": "Telerik <support@telerik.com>",
-	"description": "Nativescript hello-world project template",
-	"license": "BSD",
+	"version": "1.0.0",
+	"author": "various Authors",
+	"description": "Angular Camp Game",
+	"license": "MIT",
 	"keywords": [
 		"telerik",
 		"mobile",
@@ -12,14 +12,17 @@
 		"{N}",
 		"tns",
 		"appbuilder",
-		"template"
+		"template",
+        "GFT",
+        "Appverse",
+        "AngularCamp"
 	],
 	"repository": {
 		"type": "git",
-		"url": "git://github.com/NativeScript/template-hello-world.git"
+		"url": "git://github.com/Appverse/Angular-Camp-Game.git"
 	},
 	"bugs": {
-		"url": "https://github.com/NativeScript/template-hello-world/issues"
+		"url": "https://github.com/Appverse/Angular-Camp-Game/issues"
 	},
-	"homepage": "https://github.com/NativeScript/template-hello-world"
+	"homepage": "https://github.com/Appverse/Angular-Camp-Game"
 }
